@@ -91,6 +91,8 @@ install_quarto:
 	quarto check
 	@echo "Quarto has been installed."
 
+install_htop:
+	sudo apt install -y htop
 
 # Combined target to install all dependencies
 install_all: install_curl install_nerd_font install_neovim install_pypy3 install_zig install_rust install_evcxr_jupyter install_evcxr_notebook install_libgraphviz install_quarto install_starship
