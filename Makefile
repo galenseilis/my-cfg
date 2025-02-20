@@ -42,6 +42,14 @@ install_evcxr_notebook:
 install_libgraphviz:
 	sudo apt-get install -y graphviz libgraphviz-dev
 
+install_pyright:
+	sudo apt install -y npm
+	sudo npm install pyright
+	sudo rm -r node_modules
+	sudo rm package-lock.json
+	sudo rm package.json
+
+
 # Install Neovim and config for it
 install_neovim:
 	sudo apt install fonts-noto-color-emoji
