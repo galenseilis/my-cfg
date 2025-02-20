@@ -4,6 +4,20 @@
 install_curl:
 	sudo apt-get install -y curl
 
+install_nerd_font:
+	# Download the FiraCode Nerd Font zip file
+	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/0xProto.zip -O nerd_font.zip
+	# Unzip the font archive
+	unzip nerd_font.zip -d NerdFont
+	# Move the font files to the local fonts directory
+	mkdir -p ~/.local/share/fonts
+	mv NerdFont/*.ttf ~/.local/share/fonts/
+	# Clean up the downloaded zip file and extracted folder
+	rm -rf nerd_font.zip NerdFont
+	# Update the font cache
+	fc-cache -fv
+	@echo "A Nerd Font has been installed."
+
 # Install PyPy3
 install_pypy3:
 	sudo apt-get install -y pypy3
@@ -56,6 +70,6 @@ install_quarto:
 
 
 # Combined target to install all dependencies
-install_all: install_neovim install_pypy3 install_zig install_rust install_evcxr_jupyter install_evcxr_notebook install_libgraphviz install_quarto install_starship
+install_all: install_curl install_nerd_font install_neovim install_pypy3 install_zig install_rust install_evcxr_jupyter install_evcxr_notebook install_libgraphviz install_quarto install_starship
 	@echo "All dependencies have been installed."
 
