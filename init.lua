@@ -8,15 +8,25 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+-- NOTE: See `:help vim.opt`
+-- INFO: For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 4 -- Number of spaces a tab character represents
+vim.opt.shiftwidth = 4 -- Number of spaces to use for each level of indentation
+vim.opt.expandtab = true -- Convert tabs to spaces
+
+-- Set indentation for Python files
+vim.cmd([[
+  augroup PythonIndentation
+    autocmd!
+    autocmd FileType python setlocal tabstop=4 shiftwidth=4 expandtab
+  augroup END
+]])
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
