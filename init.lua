@@ -933,7 +933,7 @@ require("lazy").setup({
 			"jmbuhr/otter.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
-		config = function()
+		config = function() -- BUG: This is not working yet.
 			local runner = require("quarto.runner")
 			vim.keymap.set("n", "<localleader>rc", runner.run_cell, { desc = "run cell", silent = true })
 			vim.keymap.set("n", "<localleader>ra", runner.run_above, { desc = "run cell and above", silent = true })
