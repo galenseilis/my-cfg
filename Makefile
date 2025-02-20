@@ -25,8 +25,14 @@ install_libgraphviz:
 	sudo apt-get install -y graphviz
 	pip install libgraphviz-dev
 
+# Install Neovim
+install_neovim:
+	sudo add-apt-repository ppa:neovim-ppa/unstable -y
+	sudo apt update
+	sudo apt install gcc ripgrep unzip git xclip neovim
+
 # Combined target to install all dependencies
-install_all: install_pypy3 install_zig install_rust install_evcxr_jupyter install_evcxr_notebook install_libgraphviz
+install_all: install_neovim install_pypy3 install_zig install_rust install_evcxr_jupyter install_evcxr_notebook install_libgraphviz
 	@echo "All dependencies have been installed."
 
 
